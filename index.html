@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Meta -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>CS4102 Lecture Materials Hub</title>
+</head>
+
+<body>
+<div id="app" class="container-fluid">
+	<div class="jumbotron">
+	  <h1 class="display-4">CS4102 Lecture Material Hub</h1>
+	  <p class="lead">A collection of lecture videos from Fall 2018.</p>
+	  <hr class="my-4">
+		<div class="search-wrapper">
+		    <input type="text" v-model="search" placeholder="Search by title or keywords"/>
+		</div>
+	</div>
+
+	<div style="margin: auto;margin-top:20px" class="justify-content-center col-8 card bg-light" v-for="lecture in filteredList">
+		  <div class="card-header">
+                    <h6>Lecture {{lecture.index}}, {{lecture.pubdate}}</h6>
+		    <h4>{{ lecture.title}}</h4> 
+		    <h6 class="card-subtitle mb-2 text-muted">Keywords: {{ lecture.keywords}}</h6>
+		    <h6 class="card-subtitle mb-2 text-muted">Cormen Readings: {{ lecture.readings}}</h6>
+		  </div>
+		<div class="card-body">
+			<div class="card-text">
+
+
+
+
+
+					<ul class="nav nav-tabs" v-bind:id="myTab+lecture.index" role="tablist">
+					  <li class="nav-item">
+					    <a class="nav-link active" id="home-tab" data-toggle="tab" v-bind:href="'#home'+lecture.index" role="tab" aria-selected="true">Video:</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" id="pm-tab" data-toggle="tab" v-bind:href="'#pm'+lecture.index" role="tab" aria-selected="false">2:00pm</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" id="am-tab" data-toggle="tab" v-bind:href="'#am'+lecture.index" role="tab"  aria-selected="false">9:30am</a>
+					  </li>
+					</ul>
+
+					<div class="tab-content">
+					    <div v-bind:id="'home'+lecture.index" class="tab-pane fade show active">
+					      Select a session to view recording.
+					    </div>
+					    <div v-bind:id="'pm'+lecture.index" class="tab-pane fade">
+					      <div v-if="lecture.video[0] != 'None'">
+					      	<iframe class="col-lg-12 col-md-12 col-sm-12" width="400" height="400" v-bind:src="lecture.video[0]"> </iframe>
+					      </div>
+					      <div v-else> No available recording of this lecture.</div>
+					    </div>
+					    <div v-bind:id="'am'+lecture.index" class="tab-pane fade">
+					      <div v-if="lecture.video[1] != 'None'">
+					      	<iframe class="col-lg-12 col-md-12 col-sm-12" width="400" height="400" v-bind:src="lecture.video[1]"> </iframe>
+					      </div>
+					      <div v-else> No available recording of this lecture. </div>
+					    </div>
+					</div>
+
+
+
+			      <br>
+			      <template v-if="lecture.pdf != 'None'">
+			      <a class="btn btn-outline-primary" v-bind:href="lecture.pdf">PDF</a>
+			      </template>
+			      <template v-if="lecture.pptx != 'None'">
+			      <a class="btn btn-outline-success" v-bind:href="lecture.pptx">PPTX</a>
+			      </template>
+				<div class="btn-group" role="group" aria-label="Links">
+					<template v-if="lecture.weblinks != 'None'">
+						<template v-for="weblink in lecture.weblinks">
+							<a class="btn btn-outline-secondary" v-bind:href="weblink.url">{{weblink.link}}</a>
+						</template>
+					</template>
+				</div>
+			 </div>
+		</div>
+	</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+
+   var i = 1
+
+   class Weblink{
+     constructor(url, link){
+     this.url = url;
+     this.link = link
+     }
+   }
+
+   class Lecture{
+     constructor(title, keywords, pubdate, video, pdf, pptx, readings, weblinks){
+     this.title = title;
+     this.keywords = keywords;
+     this.pubdate = pubdate;
+     this.video = video;
+     this.pdf = pdf;
+     this.pptx = pptx;
+     this.readings = readings;
+     this.weblinks = weblinks;
+     this.index = i;
+     i += 1;
+     } 
+   }
+   
+   const app = new Vue({
+   el: "#app",
+   data: {
+     search:  "" ,
+     lectures : [ 
+
+new Lecture(
+'Welcome', 
+'None', 
+'Tuesday August 28', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5e4bffbd-f5d0-446f-8cf3-a94a0128d1b6', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7567b2f3-860f-439e-9244-a94a00ddbabf'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L1_intro.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L1_intro.pptx', 
+'None', 
+'None'
+), 
+new Lecture(
+'Divide and Conquer', 
+'Recurrences, Asymptotic Notation, Divide and Conquer, Trominos', 
+'Thursday August 30', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=de828fd8-8eec-4c72-a653-a94c00de838f', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d54cb030-66ac-482d-b7e7-a94c0128698b'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L2_recurrences_DandC.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L2_recurrences_DandC.pptx', 
+'Chapter 3, Growth of Functions (All); Chapter 4, Divide-and-Conquer (Intro)', 
+'None'
+), 
+new Lecture(
+'Karatsuba & Tree Method', 
+'Divide and Conquer, Recurrences, Merge Sort, Karatsuba, Tree Method', 
+'Tuesday September 4', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=932d99e3-b784-4dbf-acf7-a95101286b2d', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1fe30f60-384d-43ea-a893-a95100de8789'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L3_karatsuba_G&C.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L3_karatsuba_G&C.pptx', 
+'Chapter 4, Divide-and-Conquer (4.4 The recursion-tree method for solving recurrences)', 
+'None'
+), 
+new Lecture(
+'Guess and Check', 
+'Karatsuba, Guess and Check Method, Induction', 
+'Thursday September 6', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=88d5ff85-f412-48be-a9b7-a95301286766', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=dc06d489-ba7d-4349-80bd-a95300df8dd2'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L4_G&C_Master.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L4_G&C_Master.pptx', 
+'Chapter 4, Divide and Conquer (4.3 The substitution method for solving recurrences)', 
+[
+ new Weblink('http://www.cs.virginia.edu/~njb2b/cs4102/hub/supplement/cs4102_recurrence_proofs.pdf', 'Recurrence Solutions'), 
+]
+), 
+new Lecture(
+'Master Theorem, Substitution', 
+'Recurrence Relations, Cookbook Method, Master Theorem, Subsitution Method', 
+'Tuesday September 11', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=f21d6171-96e6-4431-b9df-a95801283cf7', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b2a00765-3712-4185-8c90-a961010848e0'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L5_Master.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L5_Master.pptx', 
+'Chapter 4, Divide and Conquer (4.3 The substitution method for solving recurrences)', 
+'None'
+), 
+new Lecture(
+'Closest Pair of Points', 
+'Divide and Conquer, Closest Pair of Points', 
+'Thursday September 13', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=46271d1f-3516-4fb2-8c81-a95a012812d3', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L6_sub_closestpair.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L6_sub_closestpair.pptx', 
+'Chapter 33, Computational Geometry (33.4 Finding the closest pair of points)', 
+'None'
+), 
+new Lecture(
+'Strassen\'s Algorithm and Quicksort', 
+'Divide and Conquer, Matrix Multiplication, Strassen\'s Algorithm, Sorting, Quicksort', 
+'Tuesday September 18', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=e6e280c6-00e8-4bbb-be90-a95f0128dc86', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=057422ad-162e-4888-b240-a961010850d8'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L7_strassenquicksort.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L7_strassenquicksort.pptx', 
+'Chapter 4, Divide-and-Conquer (4.2 Strassen\'s algorithm for matrix multiplication); Chapter 7, Quicksort (7.1 Description of Quicksort)', 
+'None'
+), 
+new Lecture(
+'Quickselect and Median-of-Medians', 
+'Divide and Conquer, Sorting, Quicksort, Median, Order Statistic, Quickselect, Median of Medians', 
+'Thursday September 20', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=51b730b1-971e-4857-9f44-a96101299a43', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d1cf83da-a39b-4824-b309-a9610108567a'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L8_quickselectMedianofMedians.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L8_quickselectMedianofMedians.pptx', 
+'Chapter 9, Medians and Order Statistics (all)', 
+[
+ new Weblink('https://www.ics.uci.edu/~eppstein/161/960125.html', 'Quickselect'), new Weblink('https://www.ics.uci.edu/~eppstein/161/960130.html', 'Median of Medians'), 
+]
+), 
+new Lecture(
+'Randomized Quicksort, Sorting Lower Bound', 
+'Divide and Conquer, Sorting, Quicksort, Decision Tree, Worse Case Lower Bound', 
+'Tuesday September 25', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=0ca91657-4a50-47bc-9acd-a9660128813f', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8c61382e-e21c-485f-8918-a97a00face38'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L9_randquicksort.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L9_randquicksort.pptx', 
+'Chapter 7, Quicksort (7.3 A randomized version of quicksort, 7.4 Analysis of quicksort); Chapter 8, Sorting in Linear Time (8.1 Lower bounds for sorting)', 
+'None'
+), 
+new Lecture(
+'Sorting Algorithms and Their Properties', 
+'Sorting, Quicksort, Sorting Algorithm Properties, Insertionsort, Bubblesort, Heapsort', 
+'Thursday September 27', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ecee4c5d-7843-44b3-84f2-a9680128934f', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d1b3ba4b-7e83-4766-8bc8-a97a00fad1ea'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L10_variousSorts.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L10_variousSorts.pptx', 
+'Part II Sorting and Order Statistics (Introduction); Chapter 6, Heapsort (all)', 
+'None'
+), 
+new Lecture(
+'Linear Time Sorting', 
+'Sorting, Linear Time Sorting, Counting Sort, Radix Sort, Maximum Sum Contiguous Subsequence', 
+'Tuesday October 2', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ccbec42a-f3d1-42bb-b00d-a96d0128a194', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=952e48f7-e066-476e-85ce-a97a00fad565'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L11_linearSorts_maxSubsetSum.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L11_linearSorts_maxSubsetSum.pptx', 
+'Chapter 8, Sorting in Linear Time (8.2 Counting Sort, 8.3 Radix sort); Chapter 4, Divide-and-Conquer (4.1 The maximum-subarray problem)', 
+'None'
+), 
+new Lecture(
+'Dynamic Programming', 
+'Dynamic Programming, Fibonacci, Log Cutting', 
+'Thursday October 4', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=0687071f-674f-433a-b7c9-a96f012882b6', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=9e33120b-3c6d-498b-84d3-a97a00fad997'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L12_dynprog.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L12_dynprog.pptx', 
+'Chapter 15, Dynamic Programming (Intro, 15.1 Rod cutting)', 
+'None'
+), 
+new Lecture(
+'Matrix Chain Multiplication', 
+'Dynamic Programming, Matrix Chain Multiplication, Longest Common Subsequence', 
+'Thursday October 11', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=658a3137-3ee7-4ee3-aaec-a9760128b26b', 
+'https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=e632415c-5f17-41e4-904a-a97a00fadf32'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L13_matrixChainLCS.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L13_matrixChainLCS.pptx', 
+'Chapter 15, Dynamic Programming (15.2 Matrix-chain multiplication)', 
+'None'
+), 
+new Lecture(
+'Midterm Exam', 
+'TBA', 
+'Tuesday October 16', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=62b255ec-6a3c-4264-828f-a979018343c4', 
+'None'], 
+'None', 
+'None', 
+'TBA', 
+[
+ new Weblink('https://www.cs.virginia.edu/~njb2b/cs4102/hub/supplement/practicemidterm.pdf', 'Practice Midterm'), 
+]
+), 
+new Lecture(
+'Longest Common Subsequence, Seam Carving', 
+'Dynamic Programming, Seam Carving, Longest Common Subsequence', 
+'Thursday October 18', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=47271cad-d761-46fd-9215-a97d01285341', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L14_LCSSeamCarve.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L14_LCSSeamCarve.pptx', 
+'Chapter 15, Dynamic Programming (15.4 Longest common subsequence)', 
+[
+ new Weblink('https://en.wikipedia.org/wiki/Seam_carving', 'Seam Carving'), new Weblink('http://rsizr.com/', 'A Seam Carver'), new Weblink('https://en.wikipedia.org/wiki/The_Slicer', '"The Slicer"'), 
+]
+), 
+new Lecture(
+'Exam Review and Fun Problems', 
+'TBA', 
+'Tuesday October 23', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=36b0e041-32de-4ab8-82f7-a98201284e40', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L15_examrecap_fun.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L15_examrecap_fun.pptx', 
+'TBA', 
+[
+ new Weblink('https://docs.google.com/spreadsheets/d/19z-6FeuJecluXw6--h5gwBFuqyzuzZlkHegyWUd3zz4/edit?usp=sharing', 'Exam Statistics'), 
+]
+), 
+new Lecture(
+'Gerrymandering', 
+'Dynamic Programming, Total World Domination', 
+'Thursday October 25', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=e91d05e2-80e7-4fec-8a82-a9840128b585', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L16_gerrymander.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L16_gerrymander.pptx', 
+'Does Not Appear', 
+'None'
+), 
+new Lecture(
+'Greedy Algorithms, Interval Scheduling', 
+'Greedy Algorithms, Interval Scheduling, Exchange Arguments, Choice Function, Change Making,', 
+'Tuesday October 30', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6d6e6993-f92a-4efb-8eb6-a9890128a625', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L17_greedyCoinIntervals.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L17_greedyCoinIntervals.pptx', 
+'Chapter 16, Greedy Algorithms (16.1 An activity-selection problem, 16.2 Elements of the greedy strategy)', 
+'None'
+), 
+new Lecture(
+'Huffman Coding', 
+'Greedy Algorithms, Huffman Coding, Exchange Arguments, Choice Function', 
+'Thursday November 1', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=dfc79df7-1f0a-44c2-805a-a98b0128b259', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L18_greedyHuffman.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L18_greedyHuffman.pptx', 
+'Chapter 16, Greedy Algorithms (16.3 Huffman codes)', 
+'None'
+), 
+new Lecture(
+'Belady Cache Replacement', 
+'Greedy Algorithms, Cache Replacement, Cached Eviction, Hardware and Algorithms', 
+'Tuesday November 6', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a8b32909-497d-4f77-bc1e-a99001390c29', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L19_greedyCache.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L19_greedyCache.pptx', 
+'Does Not Appear', 
+[
+ new Weblink('https://en.wikipedia.org/wiki/Cache_replacement_policies', 'Other Replacement Policies'), 
+]
+), 
+new Lecture(
+'Graphs, Minimum Spanning Trees', 
+'Greedy Algorithms, Graphs, Minimum Spanning Trees, Exchange Argument, Prim\'s Algorithm, Kruskal\'s Algorithm, Cut Theorem, Cut Property', 
+'Thursday November 8', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7d092ea9-6c95-4ad7-a56e-a9920139297c', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L20_mst.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L20_mst.pptx', 
+'Chapter 23, Minimum Spanning Trees (all)', 
+'None'
+), 
+new Lecture(
+'Disjkstra\'s Algorithm', 
+'Greedy Algorithms, Graphs, Single-source Shortest paths, Dijkstra\'s algorithm', 
+'Tuesday November 13', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a08490d9-234b-4f2c-93c6-a99701390f3f', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L21_shortestPath.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L21_shortestPath.pptx', 
+'Chapter 24, Single-Source Shortest Paths (24.3 Dijkstra\'s algorithm)', 
+'None'
+), 
+new Lecture(
+'Bellman-Ford', 
+'Dynamic Programming, Graphs, Single-source Shortest paths, Bellman-Ford Algorithm, Money Pumps, All pairs shortest paths, Floyd-Warshall', 
+'Thursday November 15', 
+['https://uva.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8e1dd7f7-2591-46d5-967e-a99901391966', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L22_BellmanFord.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L22_BellmanFord.pptx', 
+'Chapter 24, Single-Source Shortest Paths (24.1 The Bellman-Ford algorithm)', 
+'None'
+), 
+new Lecture(
+'Max Flow, Min Cut', 
+'Flow Networks, Maximum Flow, Minimum Cut, Residual Graph, Augmenting Path', 
+'Tuesday November 20', 
+['None', 
+'None'], 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L23_maxflow.pdf', 
+'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L23_maxflow.pptx', 
+'Chapter 26, Maximum Flow (26.1 Flow networks, 26.2 The Ford-Fulkerson method)', 
+'None'
+), 
+
+     ]
+   },
+
+     computed: {
+       filteredList() {
+         return this.lectures.filter(lecture => {
+	     return lecture.title.toLowerCase().includes(this.search.toLowerCase()) ||
+	     lecture.keywords.toLowerCase().includes(this.search.toLowerCase())
+	 }) 
+       }
+     }
+   
+   
+   });
+   
+
+  </script>
+</body>
+
+</html>
+

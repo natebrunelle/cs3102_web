@@ -1,0 +1,22 @@
+
+     ]
+   },
+
+     computed: {
+       filteredList() {
+         return this.lectures.filter(lecture => {
+	     return lecture.title.toLowerCase().includes(this.search.toLowerCase()) ||
+	     lecture.keywords.toLowerCase().includes(this.search.toLowerCase())
+	 }) 
+       }
+     }
+   
+   
+   });
+   
+
+  </script>
+</body>
+
+</html>
+
