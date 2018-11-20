@@ -1,5 +1,3 @@
 cd public_html/cs3102/
-./pull.sh
-cd slides
-chmod o+r *
+git pull git@github.com:natebrunelle/cs3102_web.git
 exit

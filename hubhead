@@ -15,7 +15,7 @@
 <div id="app" class="container-fluid">
 	<div class="jumbotron">
 	  <h1 class="display-4">CS3102 Lecture Materials</h1>
-	  <p class="lead">A collection of lecture videos and other materials for Sprint 2019.</p>
+	  <p class="lead">A collection of lecture videos and other materials for Spring 2019.</p>
 	  <hr class="my-4">
 		<div class="search-wrapper">
 		    <input type="text" v-model="search" placeholder="Search by title or keywords"/>
