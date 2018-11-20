@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <title>CS3102 Lecture Materials</title>
+  <title>CS3102 Lectures</title>
 </head>
 
 <body>
 <div id="app" class="container-fluid">
 	<div class="jumbotron">
-	  <h1 class="display-4">CS3102 Lecture Materials</h1>
-	  <p class="lead">A collection of lecture videos and other materials for Spring 2019.</p>
+	  <h1 class="display-4">CS3102 Theory of Computation</h1>
+	  <p class="lead">A collection of lecture videos and materials from Spring 2019.</p>
 	  <hr class="my-4">
 		<div class="search-wrapper">
 		    <input type="text" v-model="search" placeholder="Search by title or keywords"/>
@@ -38,31 +38,22 @@
 
 					<ul class="nav nav-tabs" v-bind:id="myTab+lecture.index" role="tablist">
 					  <li class="nav-item">
-					    <a class="nav-link active" id="home-tab" data-toggle="tab" v-bind:href="'#home'+lecture.index" role="tab" aria-selected="true">Video:</a>
+					    <a class="nav-link active" id="home-tab" data-toggle="tab" v-bind:href="'#home'+lecture.index" role="tab" aria-selected="true">Home</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" id="pm-tab" data-toggle="tab" v-bind:href="'#pm'+lecture.index" role="tab" aria-selected="false">2:00pm</a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" id="am-tab" data-toggle="tab" v-bind:href="'#am'+lecture.index" role="tab"  aria-selected="false">9:30am</a>
+					    <a class="nav-link" id="pm-tab" data-toggle="tab" v-bind:href="'#pm'+lecture.index" role="tab" aria-selected="false">Video</a>
 					  </li>
 					</ul>
 
 					<div class="tab-content">
 					    <div v-bind:id="'home'+lecture.index" class="tab-pane fade show active">
-					      Select a session to view recording.
+					      No cover slide available
 					    </div>
 					    <div v-bind:id="'pm'+lecture.index" class="tab-pane fade">
 					      <div v-if="lecture.video[0] != 'None'">
 					      	<iframe class="col-lg-12 col-md-12 col-sm-12" width="400" height="400" v-bind:src="lecture.video[0]"> </iframe>
 					      </div>
 					      <div v-else> No available recording of this lecture.</div>
-					    </div>
-					    <div v-bind:id="'am'+lecture.index" class="tab-pane fade">
-					      <div v-if="lecture.video[1] != 'None'">
-					      	<iframe class="col-lg-12 col-md-12 col-sm-12" width="400" height="400" v-bind:src="lecture.video[1]"> </iframe>
-					      </div>
-					      <div v-else> No available recording of this lecture. </div>
 					    </div>
 					</div>
 
