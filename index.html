@@ -94,7 +94,6 @@
 var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L2_recurrences_DandC.pdf',
                     'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L2_recurrences_DandC.pdf']
 
-   var i = 1
 
    class Weblink{
      constructor(url, link){
@@ -104,7 +103,7 @@ var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L
    }
 
    class Lecture{
-     constructor(title, keywords, pubdate, video, pdf, pptx, readings, weblinks){
+     constructor(title, keywords, pubdate, i, video, pdf, pptx, readings, weblinks){
      this.title = title;
      this.keywords = keywords;
      this.pubdate = pubdate;
@@ -114,7 +113,6 @@ var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L
      this.readings = readings;
      this.weblinks = weblinks;
      this.index = i;
-     i += 1;
      } 
    }
    
@@ -128,6 +126,7 @@ new Lecture(
 'Cold Fusion and Drunken Waterfowl', 
 'None', 
 'TBA', 
+'0', 
 ['None', 
 'None'], 
 'None', 
@@ -139,6 +138,7 @@ new Lecture(
 'Games, Sets, Matches', 
 'TBA', 
 'TBA', 
+'0', 
 ['None', 
 'None'], 
 'None', 
@@ -150,6 +150,7 @@ new Lecture(
 'To Infinity and Beyond', 
 'TBA', 
 'TBA', 
+'0', 
 ['None', 
 'None'], 
 'None', 
@@ -161,6 +162,31 @@ new Lecture(
 'Nonsense', 
 'TBA', 
 'TBA', 
+'0', 
+['None', 
+'None'], 
+'None', 
+'None', 
+'TBA', 
+'None'
+), 
+new Lecture(
+'What\'s in the box?!', 
+'TBA', 
+'TBA', 
+'0', 
+['None', 
+'None'], 
+'None', 
+'None', 
+'TBA', 
+'None'
+), 
+new Lecture(
+'Languages', 
+'TBA', 
+'TBA', 
+'0', 
 ['None', 
 'None'], 
 'None', 
