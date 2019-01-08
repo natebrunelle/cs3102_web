@@ -122,3 +122,25 @@ var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L
      search:  "" ,
      lectures : [ 
 
+
+     ]
+   },
+
+     computed: {
+       filteredList() {
+         return this.lectures.filter(lecture => {
+	     return lecture.title.toLowerCase().includes(this.search.toLowerCase()) ||
+	     lecture.keywords.toLowerCase().includes(this.search.toLowerCase())
+	 }) 
+       }
+     }
+   
+   
+   });
+   
+
+  </script>
+</body>
+
+</html>
+
