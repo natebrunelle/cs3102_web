@@ -1,7 +1,13 @@
 semester: 2019-01-14, 2019-04-30
 Spring Break: 2019-03-09, 2019-03-17
-Midterm exam date: 2019-03-05
-Final exam date: 2019-05-06
+exam date: 2019-03-05
+exam date: 2019-05-06
+
+exam:
+    title: Midterm Exam
+    
+exam:
+    title: Final Exam
 
 lecture:
 	title: Cold Fusion and Drunken Waterfowl
@@ -16,12 +22,6 @@ lecture:
     
 lecture:
     title: Nonsense
-
-exam:
-    title: Midterm
-    
-lecture:
-    title: Test
 
 CURRENT
 ###############
