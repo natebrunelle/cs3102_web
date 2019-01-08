@@ -16,6 +16,12 @@
 	<div class="jumbotron">
 	  <h1 class="display-4">CS3102 Theory of Computation</h1>
 	  <p class="lead">A collection of lecture videos and materials from Spring 2019.</p>
+	  
+	  <div class="btn-group" role="group" aria-label="Links">
+					<template v-for="link in other_links">
+						<a class="btn btn-outline-secondary" v-bind:href="hello">{{link}}</a>
+					</template>
+				</div>
 	  <hr class="my-4">
 		<div class="search-wrapper">
 		    <input type="text" v-model="search" placeholder="Search by title or keywords"/>
@@ -85,6 +91,9 @@
 
 <script>
 
+var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L2_recurrences_DandC.pdf',
+                    'http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L2_recurrences_DandC.pdf']
+
    var i = 1
 
    class Weblink{
@@ -150,28 +159,6 @@ new Lecture(
 ), 
 new Lecture(
 'Nonsense', 
-'TBA', 
-'TBA', 
-['None', 
-'None'], 
-'None', 
-'None', 
-'TBA', 
-'None'
-), 
-new Lecture(
-'What\'s in the box?!', 
-'TBA', 
-'TBA', 
-['None', 
-'None'], 
-'None', 
-'None', 
-'TBA', 
-'None'
-), 
-new Lecture(
-'Languages', 
 'TBA', 
 'TBA', 
 ['None', 
