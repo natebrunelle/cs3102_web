@@ -122,3 +122,97 @@ var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L
      search:  "" ,
      lectures : [ 
 
+new Lecture(
+'Cold Fusion and Drunken Waterfowl', 
+'None', 
+'TBA', 
+'1', 
+['None', 
+'None'], 
+'None', 
+'None', 
+'None', 
+'None'
+), 
+new Lecture(
+'Games, Sets, Matches', 
+'TBA', 
+'TBA', 
+'2', 
+['None', 
+'None'], 
+'None', 
+'None', 
+'TBA', 
+'None'
+), 
+new Lecture(
+'To Infinity and Beyond', 
+'TBA', 
+'TBA', 
+'3', 
+['None', 
+'None'], 
+'None', 
+'None', 
+'TBA', 
+'None'
+), 
+new Lecture(
+'Nonsense', 
+'TBA', 
+'TBA', 
+'4', 
+['None', 
+'None'], 
+'None', 
+'None', 
+'TBA', 
+'None'
+), 
+new Lecture(
+'What\'s in the box?!', 
+'TBA', 
+'TBA', 
+'5', 
+['None', 
+'None'], 
+'None', 
+'None', 
+'TBA', 
+'None'
+), 
+new Lecture(
+'Languages', 
+'TBA', 
+'TBA', 
+'6', 
+['None', 
+'None'], 
+'None', 
+'None', 
+'TBA', 
+'None'
+), 
+
+     ]
+   },
+
+     computed: {
+       filteredList() {
+         return this.lectures.filter(lecture => {
+	     return lecture.title.toLowerCase().includes(this.search.toLowerCase()) ||
+	     lecture.keywords.toLowerCase().includes(this.search.toLowerCase())
+	 }) 
+       }
+     }
+   
+   
+   });
+   
+
+  </script>
+</body>
+
+</html>
+
