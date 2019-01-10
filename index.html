@@ -30,7 +30,7 @@
 
 	<div style="margin: auto;margin-top:20px" class="justify-content-center col-8 card bg-light" v-for="lecture in filteredList">
 		  <div class="card-header">
-                    <h6>{{lecture.index}} | {{lecture.pubdate}}</h6>
+                    <h6>{{lecture.display}} | {{lecture.pubdate}}</h6>
 		    <h4>{{ lecture.title}}</h4> 
 		    <h6 class="card-subtitle mb-2 text-muted">Keywords: {{ lecture.keywords}}</h6>
 		    <h6 class="card-subtitle mb-2 text-muted">Sipser Readings: {{ lecture.readings}}</h6>
@@ -103,7 +103,7 @@ var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L
    }
 
    class Lecture{
-     constructor(title, keywords, pubdate, i, video, pdf, pptx, readings, weblinks){
+     constructor(title, keywords, pubdate, display, i, video, pdf, pptx, readings, weblinks){
      this.title = title;
      this.keywords = keywords;
      this.pubdate = pubdate;
@@ -112,6 +112,7 @@ var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L
      this.pptx = pptx;
      this.readings = readings;
      this.weblinks = weblinks;
+     this.display = display;
      this.index = i;
      } 
    }
@@ -127,6 +128,7 @@ new Lecture(
 'None', 
 'Tuesday January 15', 
 'Lecture 1', 
+'Lecture1', 
 ['None', 
 'None'], 
 'None', 
@@ -142,6 +144,7 @@ new Lecture(
 'TBA', 
 'Thursday January 17', 
 'Lecture 2', 
+'Lecture2', 
 ['None', 
 'None'], 
 'None', 
@@ -155,6 +158,7 @@ new Lecture(
 'TBA', 
 'Tuesday January 22', 
 'Lecture 3', 
+'Lecture3', 
 ['None', 
 'None'], 
 'None', 
@@ -168,6 +172,7 @@ new Lecture(
 'TBA', 
 'Thursday January 24', 
 'Lecture 4', 
+'Lecture4', 
 ['None', 
 'None'], 
 'None', 
@@ -181,6 +186,7 @@ new Lecture(
 'TBA', 
 'Tuesday January 29', 
 'Lecture 5', 
+'Lecture5', 
 ['None', 
 'None'], 
 'None', 
@@ -194,6 +200,7 @@ new Lecture(
 'TBA', 
 'Thursday January 31', 
 'Lecture 6', 
+'Lecture6', 
 ['None', 
 'None'], 
 'None', 
@@ -207,6 +214,7 @@ new Lecture(
 'TBA', 
 'Tuesday February 5', 
 'Lecture 7', 
+'Lecture7', 
 ['None', 
 'None'], 
 'None', 
@@ -220,6 +228,7 @@ new Lecture(
 'TBA', 
 'Thursday February 7', 
 'Lecture 8', 
+'Lecture8', 
 ['None', 
 'None'], 
 'None', 
@@ -233,6 +242,7 @@ new Lecture(
 'TBA', 
 'Tuesday February 12', 
 'Lecture 9', 
+'Lecture9', 
 ['None', 
 'None'], 
 'None', 
@@ -246,6 +256,7 @@ new Lecture(
 'TBA', 
 'Thursday February 14', 
 'Lecture 10', 
+'Lecture10', 
 ['None', 
 'None'], 
 'None', 
@@ -259,6 +270,7 @@ new Lecture(
 'TBA', 
 'Tuesday February 19', 
 'Lecture 11', 
+'Lecture11', 
 ['None', 
 'None'], 
 'None', 
@@ -272,6 +284,7 @@ new Lecture(
 'TBA', 
 'Thursday February 21', 
 'Lecture 12', 
+'Lecture12', 
 ['None', 
 'None'], 
 'None', 
@@ -285,6 +298,7 @@ new Lecture(
 'TBA', 
 'Tuesday February 26', 
 'Lecture 13', 
+'Lecture13', 
 ['None', 
 'None'], 
 'None', 
@@ -298,6 +312,7 @@ new Lecture(
 'TBA', 
 'Thursday February 28', 
 'Lecture 14', 
+'Lecture14', 
 ['None', 
 'None'], 
 'None', 
@@ -311,6 +326,7 @@ new Lecture(
 'TBA', 
 'Tuesday March 5', 
 'Exam 1', 
+'Exam1', 
 ['None', 
 'None'], 
 'None', 
@@ -324,6 +340,7 @@ new Lecture(
 'TBA', 
 'Thursday March 7', 
 'Lecture 15', 
+'Lecture15', 
 ['None', 
 'None'], 
 'None', 
@@ -337,6 +354,7 @@ new Lecture(
 'TBA', 
 'Tuesday March 19', 
 'Lecture 16', 
+'Lecture16', 
 ['None', 
 'None'], 
 'None', 
@@ -350,6 +368,7 @@ new Lecture(
 'TBA', 
 'Thursday March 21', 
 'Lecture 17', 
+'Lecture17', 
 ['None', 
 'None'], 
 'None', 
@@ -363,6 +382,7 @@ new Lecture(
 'TBA', 
 'Tuesday March 26', 
 'Lecture 18', 
+'Lecture18', 
 ['None', 
 'None'], 
 'None', 
@@ -376,6 +396,7 @@ new Lecture(
 'TBA', 
 'Thursday March 28', 
 'Lecture 19', 
+'Lecture19', 
 ['None', 
 'None'], 
 'None', 
@@ -389,6 +410,7 @@ new Lecture(
 'TBA', 
 'Tuesday April 2', 
 'Lecture 20', 
+'Lecture20', 
 ['None', 
 'None'], 
 'None', 
@@ -402,6 +424,7 @@ new Lecture(
 'TBA', 
 'Thursday April 4', 
 'Lecture 21', 
+'Lecture21', 
 ['None', 
 'None'], 
 'None', 
@@ -415,6 +438,7 @@ new Lecture(
 'TBA', 
 'Tuesday April 9', 
 'Lecture 22', 
+'Lecture22', 
 ['None', 
 'None'], 
 'None', 
@@ -428,6 +452,7 @@ new Lecture(
 'TBA', 
 'Thursday April 11', 
 'Lecture 23', 
+'Lecture23', 
 ['None', 
 'None'], 
 'None', 
@@ -441,6 +466,7 @@ new Lecture(
 'TBA', 
 'Tuesday April 16', 
 'Lecture 24', 
+'Lecture24', 
 ['None', 
 'None'], 
 'None', 
@@ -454,6 +480,7 @@ new Lecture(
 'TBA', 
 'Thursday April 18', 
 'Lecture 25', 
+'Lecture25', 
 ['None', 
 'None'], 
 'None', 
@@ -467,6 +494,7 @@ new Lecture(
 'TBA', 
 'Tuesday April 23', 
 'Lecture 26', 
+'Lecture26', 
 ['None', 
 'None'], 
 'None', 
@@ -480,6 +508,7 @@ new Lecture(
 'TBA', 
 'Thursday April 25', 
 'Lecture 27', 
+'Lecture27', 
 ['None', 
 'None'], 
 'None', 
@@ -493,6 +522,7 @@ new Lecture(
 'TBA', 
 'Tuesday April 30', 
 'Lecture 28', 
+'Lecture28', 
 ['None', 
 'None'], 
 'None', 
@@ -506,6 +536,7 @@ new Lecture(
 'TBA', 
 'Monday May 6', 
 'Exam 2', 
+'Exam2', 
 ['None', 
 'None'], 
 'None', 
