@@ -53,7 +53,11 @@
 
 					<div class="tab-content">
 					    <div v-bind:id="'home'+lecture.index" class="tab-pane fade show active">
-					      No preview available
+					       <div v-if="lecture.preview != 'None'">
+					      <img src="previews/L1_welcome.png" width="400">
+					    </div>
+					      <div v-else> No preview available.</div>
+					    </div>
 					    </div>
 					    <div v-bind:id="'pm'+lecture.index" class="tab-pane fade">
 					      <div v-if="lecture.video[0] != 'None'">
@@ -103,13 +107,14 @@ var other_links = ['http://www.cs.virginia.edu/~njb2b/cs4102/hub/slides/cs4102_L
    }
 
    class Lecture{
-     constructor(title, keywords, pubdate, display, i, video, pdf, pptx, readings, weblinks){
+     constructor(title, keywords, pubdate, display, i, video, pdf, pptx, preview, readings, weblinks){
      this.title = title;
      this.keywords = keywords;
      this.pubdate = pubdate;
      this.video = video;
      this.pdf = pdf;
      this.pptx = pptx;
+     this.preview = preview;
      this.readings = readings;
      this.weblinks = weblinks;
      this.display = display;
@@ -131,8 +136,9 @@ new Lecture(
 'Lecture1', 
 ['None', 
 'None'], 
-'None', 
-'None', 
+'slides/L1_welcome.pdf', 
+'slides/L1_welcome.pptx', 
+'previews/L1_welcome.png', 
 'None', 
 [
  new Weblink('http://www.cs.virginia.edu/~njb2b/cs3102/files/cs3102_syllabus_s19.pdf', 'Syllabus'), new Weblink('https://calendar.google.com/calendar/embed?src=kmf2gjk9ne5f6odf9t126a1gjs%40group.calendar.google.com&ctz=America%2FNew_York', 'Calendar'), new Weblink('https://goo.gl/forms/kq1DW3pErFUERtlg2', 'Questionnaire'), 
@@ -149,6 +155,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -161,6 +168,7 @@ new Lecture(
 'Lecture3', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -177,6 +185,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -189,6 +198,7 @@ new Lecture(
 'Lecture5', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -205,6 +215,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -217,6 +228,7 @@ new Lecture(
 'Lecture7', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -233,6 +245,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -245,6 +258,7 @@ new Lecture(
 'Lecture9', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -261,6 +275,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -273,6 +288,7 @@ new Lecture(
 'Lecture11', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -289,6 +305,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -301,6 +318,7 @@ new Lecture(
 'Lecture13', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -317,6 +335,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -329,6 +348,7 @@ new Lecture(
 'Exam1', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -345,6 +365,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -357,6 +378,7 @@ new Lecture(
 'Lecture16', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -373,6 +395,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -385,6 +408,7 @@ new Lecture(
 'Lecture18', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -401,6 +425,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -413,6 +438,7 @@ new Lecture(
 'Lecture20', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -429,6 +455,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -441,6 +468,7 @@ new Lecture(
 'Lecture22', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -457,6 +485,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -469,6 +498,7 @@ new Lecture(
 'Lecture24', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -485,6 +515,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -497,6 +528,7 @@ new Lecture(
 'Lecture26', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
@@ -513,6 +545,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -527,6 +560,7 @@ new Lecture(
 'None'], 
 'None', 
 'None', 
+'None', 
 'TBA', 
 'None'
 ), 
@@ -539,6 +573,7 @@ new Lecture(
 'Exam2', 
 ['None', 
 'None'], 
+'None', 
 'None', 
 'None', 
 'TBA', 
