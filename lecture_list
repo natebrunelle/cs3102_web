@@ -20,10 +20,12 @@ lecture:
 	    url: https://calendar.google.com/calendar/embed?src=kmf2gjk9ne5f6odf9t126a1gjs%40group.calendar.google.com&ctz=America%2FNew_York
 	weblink: Questionnaire
 	    url: https://goo.gl/forms/kq1DW3pErFUERtlg2
+	pmvideo: https://uva.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2640eba4-ce5e-417b-841d-a9d60139fb02
 	    
 lecture:
     title: Dizzying Proofs
     slides: L2_proofs
+    pmvideo: https://uva.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=75bbc99d-d2af-421f-b84d-a9d801390ba6
 	
 lecture:
     title: Games, Sets, Matches
