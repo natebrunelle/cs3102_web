@@ -38,7 +38,8 @@ lecture:
     pm_video: f1aadd9d-e1b3-45f0-a3cd-a9df013931ee
     
 lecture:
-    title: Games, Sets, Matches
+    title: Sets and Functions
+    slides: L5_sets
     
 lecture:
     title: To Infinity and Beyond
