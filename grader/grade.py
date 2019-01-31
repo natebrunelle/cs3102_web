@@ -3,7 +3,20 @@ import random
 import sys
 import tkinter as tk
 from tkinter import scrolledtext
-#import scrolled_window
+
+
+###############
+
+# Usage: modify your problems_to_grade.txt file and tograde.txt file to represent the problems and 
+# students you are grading for this assignment respectively
+
+# Select a command for opening a pdf. You must be able to simply append the name of the pdf file
+# to the command and have it work (3 choices are provided for you, they work with linux)
+
+# Run with python3 to grade students randomly
+# Run with python3 and a computing id as a command-line argument to grade a particular student
+
+###############
 
 
 ##########GUI###########

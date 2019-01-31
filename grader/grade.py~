@@ -22,6 +22,7 @@ problems_to_grade_filename = 'problems_to_grade.txt'
 
 problems_file = open(problems_filename)
 all_problems = list(map(lambda s: s.strip(), problems_file.read().strip().split()))#['1','2','3']
+print(all_problems)
 
 problems_to_grade_file = open(problems_to_grade_filename)
 problems_to_grade = list(map(lambda s: s.strip(), problems_to_grade_file.read().strip().split()))#['2','3']
