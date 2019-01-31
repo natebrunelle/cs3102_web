@@ -12,12 +12,20 @@ from tkinter import scrolledtext
 
 pdf_open_command = "xdg-open"
 #pdf_open_command = "google-chrome"
+#pdf_open_command = "evince -f"
 
 
 assigned_to_grade_filename = 'tograde.txt'
 has_graded_filename = 'hasgraded.txt'
-all_problems = ['1','2','3']
-problems_to_grade = ['2','3']
+problems_filename = 'problems.txt'
+problems_to_grade_filename = 'problems_to_grade.txt'
+
+problems_file = open(problems_filename)
+all_problems = list(map(lambda s: s.strip(), problems_file.read().strip().split()))#['1','2','3']
+print(all_problems)
+
+problems_to_grade_file = open(problems_to_grade_filename)
+problems_to_grade = list(map(lambda s: s.strip(), problems_to_grade_file.read().strip().split()))#['2','3']
 
 num_graded = 0
 
@@ -43,6 +51,7 @@ has_graded_file.close()
 print(to_grade)
 
 def entergrade(student, problem, score, comment):
+    global num_graded
     feedback_file_name = student + problem + '.txt'
     feedback_file = open(feedback_file_name, 'w')
     print(score, file=feedback_file)
