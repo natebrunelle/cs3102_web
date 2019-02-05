@@ -26,29 +26,42 @@ lecture:
     title: Dizzying Proofs
     slides: L2_proofs
     pm_video: 75bbc99d-d2af-421f-b84d-a9d801390ba6
+    reading: Chapter 0
     
 lecture:
     title: Change my mind
     slides: L3_proofs_cont
     pm_video: d8bba451-f128-48ce-b488-a9dd01394826
+    reading: Chapter 0
 	
 lecture:
     title: Change my mind pt. 2
     slides: L4_proofs_induction
     pm_video: f1aadd9d-e1b3-45f0-a3cd-a9df013931ee
+    reading: Chapter 0
     
 lecture:
     title: Sets and Functions
     slides: L5_sets
     pm_video: c24c7a4e-2bf9-4cf5-bedd-a9e401393b90
+    reading: Chapter 0
     
 lecture:
     title: To Infinity and Beyond
     slides: L6_infinity
+    reading: Chapter 0
     
 lecture:
     title: Nonsense
-
+    slides: L7_uncountability
+    reading: Chapter 0
+    weblink: The Library of Babel
+        url: http://www.arts.ucsb.edu/faculty/reese/classes/artistsbooks/The%20Library%20of%20Babel.pdf
+    weblink: The Book of Sand
+        url: http://anagrammatically.com/2010/03/08/the-book-of-sand-el-libro-de-arena-by-borges-translated/
+    weblink: Expectation Maximization
+        url: https://www.livescience.com/64469-unsolvable-math-problem.html
+    
 lecture:
 
 lecture:
