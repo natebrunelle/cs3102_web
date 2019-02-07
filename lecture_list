@@ -61,10 +61,14 @@ lecture:
         url: http://www.arts.ucsb.edu/faculty/reese/classes/artistsbooks/The%20Library%20of%20Babel.pdf
     weblink: The Book of Sand
         url: http://anagrammatically.com/2010/03/08/the-book-of-sand-el-libro-de-arena-by-borges-translated/
-    weblink: Expectation Maximization
-        url: https://www.livescience.com/64469-unsolvable-math-problem.html
+
     
 lecture:
+    title: Uncountability
+    slides: L8_countability_continued
+    reading: Chapter 0
+    weblink: Expectation Maximization
+        url: https://www.livescience.com/64469-unsolvable-math-problem.html
 
 lecture:
 
