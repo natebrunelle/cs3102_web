@@ -72,7 +72,7 @@ lecture:
 lecture:
     title: Uncountability
     pm_video: 1e71c934-928a-44e8-b9cb-a9ed013937fb
-    slides: L8_countability_continued
+    slides: L8_uncountability_continued
     reading: Chapter 0
     weblink: Expectation Maximization
         url: https://www.livescience.com/64469-unsolvable-math-problem.html
