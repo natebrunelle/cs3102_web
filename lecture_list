@@ -81,10 +81,12 @@ lecture:
     title: Gumball Machines
     reading: Chapter 1.1
     pm_video: e501df9c-9a10-49a8-888b-a9f201392db2
+    slides: L9_finite_automata
 
 lecture:
     title: Closure
     keywords: Union, Complementation, Cross Product Construction, Non-determinism
+    slides: L10_closure
 
 lecture:
 
