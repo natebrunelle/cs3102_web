@@ -27,30 +27,35 @@ lecture:
     slides: L2_proofs
     pm_video: 75bbc99d-d2af-421f-b84d-a9d801390ba6
     reading: Chapter 0
+    kywords: centrifuge, series convergence
     
 lecture:
     title: Change my mind
     slides: L3_proofs_cont
     pm_video: d8bba451-f128-48ce-b488-a9dd01394826
     reading: Chapter 0
+    keywords:  direct proof, indirect proof, proof by contradiction
 	
 lecture:
     title: Change my mind pt. 2
     slides: L4_proofs_induction
     pm_video: f1aadd9d-e1b3-45f0-a3cd-a9df013931ee
     reading: Chapter 0
+    keywords:  proof by contradiction, proof by construction, proof by cases, induction
     
 lecture:
     title: Sets and Functions
     slides: L5_sets
     pm_video: c24c7a4e-2bf9-4cf5-bedd-a9e401393b90
     reading: Chapter 0
+    keywords: Languages, strings, alphabet, sets, set operations
     
 lecture:
     title: To Infinity and Beyond
     slides: L6_infinity
     reading: Chapter 0
     pm_video: 85a57b07-ea60-4fde-b4f0-a9e6013921ad
+    keywords: Set Cardinality, pigeonhole principle, functions, one-to-one, onto, bijection, hilbert's hotel, dovetailing
     
 lecture:
     title: Nonsense
@@ -61,6 +66,7 @@ lecture:
         url: http://www.arts.ucsb.edu/faculty/reese/classes/artistsbooks/The%20Library%20of%20Babel.pdf
     weblink: The Book of Sand
         url: http://anagrammatically.com/2010/03/08/the-book-of-sand-el-libro-de-arena-by-borges-translated/
+    keywords: Diagonalization, countability, uncountability
 
     
 lecture:
