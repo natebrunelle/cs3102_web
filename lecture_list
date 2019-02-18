@@ -9,6 +9,14 @@ exam:
 exam:
     title: Final Exam
 
+
+special date: 2019-02-15
+
+special:
+    title: HW1 Problem Session
+    pm_video: 9cf9b873-19b6-4c1e-b091-a9f501862774
+
+
 lecture:
 	title: Cold Fusion and Drunken Waterfowl
 	reading: None
@@ -88,8 +96,6 @@ lecture:
     title: Closure
     keywords: finite state automata, DFA, FSA, Union, Complementation, Cross Product Construction, Non-determinism
     slides: L10_closure
-    weblink: Problem Solving Session
-        url: https://uva.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9cf9b873-19b6-4c1e-b091-a9f501862774
 
 lecture:
 
