@@ -94,13 +94,20 @@ lecture:
 
 lecture:
     title: Closure
-    keywords: finite state automata, DFA, FSA, Union, Complementation, Cross Product Construction, Non-determinism
+    keywords: finite state automata, DFA, FSA, Union, Complementation
     slides: L10_closure
     pm_video: 36b307eb-f612-4d9f-ac48-a9f4013932b3
 
 lecture:
+    title: CrossProduct Construction
+    keywords: Cross Product Construction, Union, Intersection
+    slides: L11_crossproduct 
+    pm_video: 14c164ee-704a-4eb8-9117-a9f901393c20
 
 lecture:
+    title: Non-determinism
+    keywords: Non-determinism
+    slides: L12_nondeterminism
 
 lecture:
 
