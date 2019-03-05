@@ -1,5 +1,6 @@
 semester: 2019-01-14, 2019-04-30
 Spring Break: 2019-03-09, 2019-03-17
+Sigcse Break: 2019-02-28, 2019-02-28
 exam date: 2019-03-21
 exam date: 2019-05-06
 
@@ -113,9 +114,6 @@ lecture:
 lecture:
     title: Regular Expressions
     slides: L13_regex
-
-lecture:
-    title: Office Hours
 
 lecture:
     title: Pumping
