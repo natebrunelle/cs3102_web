@@ -114,6 +114,7 @@ lecture:
 lecture:
     title: Regular Expressions
     slides: L13_regex
+    pm_video: 14b30a53-e609-4c2b-9bef-aa000139180d
 
 lecture:
     title: Pumping
