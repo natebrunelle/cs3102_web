@@ -115,8 +115,11 @@ lecture:
     slides: L13_regex
 
 lecture:
+    title: Office Hours
 
 lecture:
+    title: Pumping
+    slides: L14_pumping
 
 lecture:
 
