@@ -121,6 +121,8 @@ lecture:
     slides: L14_pumping
 
 lecture:
+    title: NFA application
+    slides: L15_bit_parallel
 
 lecture:
 
