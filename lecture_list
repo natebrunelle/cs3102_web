@@ -122,11 +122,13 @@ lecture:
     title: Pumping
     slides: L14_pumping
     keywords: Non-regular lanaguages, Pumping Lemma, Proving Non-Regularity
+    pm_video: 486aed1c-70b2-462d-8fdc-aa070139242e
 
 lecture:
     title: NFA application
     slides: L15_bit_parallel
     keywords: Pumping Lemma examples, Pumping Lemma Misuse
+    pm_video: 6bf499b5-639f-4da3-ad6a-aa09013927ba
 
 lecture:
 
