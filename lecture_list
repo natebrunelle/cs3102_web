@@ -85,13 +85,14 @@ lecture:
     reading: Chapter 0
     weblink: Expectation Maximization
         url: https://www.livescience.com/64469-unsolvable-math-problem.html
+    keywords: Diagonalization, Uncountable sets, Cantor's Theorem, Language Operations
 
 lecture:
     title: Gumball Machines
     reading: Chapter 1.1
     pm_video: e501df9c-9a10-49a8-888b-a9f201392db2
     slides: L9_finite_automata
-    keywords: finite state automata, DFA, FSA
+    keywords: Deterministic finite state automata, DFA, FSA, Language Operations
 
 lecture:
     title: Closure
@@ -107,7 +108,7 @@ lecture:
 
 lecture:
     title: Non-determinism
-    keywords: Non-determinism
+    keywords: Non-determinism, NFAs, Reversal
     slides: L12_nondeterminism
     pm_video: 82e94de5-95fb-4db9-83fb-a9fb013939ec
 
@@ -115,14 +116,17 @@ lecture:
     title: Regular Expressions
     slides: L13_regex
     pm_video: 14b30a53-e609-4c2b-9bef-aa000139180d
+    keywords: Powerset Construction, Regular Expressions, Regular expression to NFA conversion
 
 lecture:
     title: Pumping
     slides: L14_pumping
+    keywords: Non-regular lanaguages, Pumping Lemma, Proving Non-Regularity
 
 lecture:
     title: NFA application
     slides: L15_bit_parallel
+    keywords: Pumping Lemma examples, Pumping Lemma Misuse
 
 lecture:
 
