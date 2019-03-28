@@ -131,10 +131,16 @@ lecture:
     pm_video: 6bf499b5-639f-4da3-ad6a-aa09013927ba
 
 lecture:
+    title: Pushdown Automata
+    slides: L16_pdas
 
 lecture:
+    title: Context Freeness
+    slides: L17_contextfreeness
 
 lecture:
+    title: Context Free Grammas
+    slides: L18_contextfreegrammars
 
 lecture:
 
