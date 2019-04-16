@@ -143,12 +143,20 @@ lecture:
     slides: L18_contextfreegrammars
 
 lecture:
+    title: Computability
+    slides: L19_computability
 
 lecture:
+    title: Turing Machines
+    slides: L20_turingmachines
 
 lecture:
+    title: Undecidability
+    slides: L21_undecidbability
 
 lecture:
+    title: Reductions
+    slides: L22_reductions
 
 lecture:
 
