@@ -159,8 +159,14 @@ lecture:
     slides: L22_reductions
 
 lecture:
+    title: Recutions2
+    slides: L23_reductions2
+    weblink: Hand-written Notes
+	    url: http://www.cs.virginia.edu/~njb2b/cs3102/files/reduction_notes.pdf
 
 lecture:
+    title: Recognizability
+    slides: L24_recognizability
 
 lecture:
 
