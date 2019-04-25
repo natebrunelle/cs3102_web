@@ -169,8 +169,12 @@ lecture:
     slides: L24_recognizability
 
 lecture:
+    title: Complexity Classes
+    slides: L25_complexity
 
 lecture:
+    title: NP-Completeness
+    slides: L26_npc
 
 lecture:
 
