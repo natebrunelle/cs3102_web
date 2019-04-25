@@ -133,44 +133,54 @@ lecture:
 lecture:
     title: Pushdown Automata
     slides: L16_pdas
+    pm_video: 1ae17329-af62-4153-8c33-aa150128b0a4
 
 lecture:
     title: Context Freeness
     slides: L17_contextfreeness
+    pm_video: 7dd10b16-aebc-4781-9ef9-aa1c0128b71e
 
 lecture:
     title: Context Free Grammars
     slides: L18_contextfreegrammars
+    pm_video: 256a32bf-f97a-421e-8915-aa1e0128a7ec
 
 lecture:
     title: Computability
     slides: L19_computability
+    pm_video: 406de789-946e-4029-b098-aa230128acc7
 
 lecture:
     title: Turing Machines
     slides: L20_turingmachines
+    pm_video: 494c47d4-5f29-4001-b8c1-aa250128bf41
 
 lecture:
     title: Undecidability
     slides: L21_undecidability
+    pm_video: 0417e2e8-b9e7-4c0b-be77-aa2a0128b371
 
 lecture:
     title: Reductions
     slides: L22_reductions
+    pm_video: 5a08a13b-75f7-4e64-a518-aa2c0128aee7
 
 lecture:
     title: Reductions Again
     slides: L23_reductions2
     weblink: Hand-written Notes
 	    url: http://www.cs.virginia.edu/~njb2b/cs3102/files/reduction_notes.pdf
+    pm_video: 8fc57616-4b02-48c4-af51-aa310128b13d
 
 lecture:
     title: Recognizability
     slides: L24_recognizability
+    pm_video: d19c555d-de8c-4978-aa90-aa330128d303
 
 lecture:
     title: Complexity Classes
     slides: L25_complexity
+    pm_video: 8673ccbe-a488-4290-a23c-aa380128da08
 
 lecture:
     title: NP-Completeness
