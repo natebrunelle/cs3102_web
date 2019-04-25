@@ -152,14 +152,14 @@ lecture:
 
 lecture:
     title: Undecidability
-    slides: L21_undecidbability
+    slides: L21_undecidability
 
 lecture:
     title: Reductions
     slides: L22_reductions
 
 lecture:
-    title: Recutions2
+    title: Reductions Again
     slides: L23_reductions2
     weblink: Hand-written Notes
 	    url: http://www.cs.virginia.edu/~njb2b/cs3102/files/reduction_notes.pdf
