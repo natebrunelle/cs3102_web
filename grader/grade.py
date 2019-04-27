@@ -3,6 +3,7 @@ import random
 import sys
 import tkinter as tk
 from tkinter import scrolledtext
+import argparse
 
 
 ###############
@@ -107,9 +108,14 @@ def display_student(student):
     print("Now grading " + student)
     os.system(pdf_open_command + " " + student + '.pdf')
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--student", "-s", help="individual student to grade")
+parser.add_argument("--cli", "-c", action="store_true", help="use CLI instead of gui")
 
-student_provided = len(sys.argv)>1
-student = sys.argv[1] if student_provided else next_student()
+args = parser.parse_args()
+
+student_provided = args.student is not None
+student = args.student if student_provided else next_student()
 display_student(student)
 
 
@@ -168,20 +174,35 @@ def buildwindow(window):
     
     row += 1
 
-    
-if not student is None:
-        
-    gui = tk.Tk()
-    gui.geometry('600x600')
-    title = "Now grading " + student if student_provided else "Grading random students"
-    v = tk.StringVar()
-    v.set("Now grading " + student)
-    gui.title(title)
-    grading_label = tk.Label(gui, textvariable=v, font=("Courier", 10))
-    grading_label.grid(column = 0, row=0)
-    buildwindow(gui)
+use_gui = not args.cli
 
-    gui.mainloop()
+if not student is None:
+    if use_gui:
+        gui = tk.Tk()
+        gui.geometry('600x600')
+        title = "Now grading " + student if student_provided else "Grading random students"
+        v = tk.StringVar()
+        v.set("Now grading " + student)
+        gui.title(title)
+        grading_label = tk.Label(gui, textvariable=v, font=("Courier", 10))
+        grading_label.grid(column = 0, row=0)
+        buildwindow(gui)
+
+        gui.mainloop()
+    else:
+        while student is not None:
+            display_student(student)
+            for problem in problems_to_grade:
+                print("Grading {}".format(problem))
+                i = problems_to_grade.index(problem)
+                score = float(input("score: "))
+                comment = input("comment: ")
+                entergrade(student, problem, score, comment)
+            if student_provided:
+                break
+            if next_student() is None:
+                break
+
 else:
     print("No Students left to grade!")
 
